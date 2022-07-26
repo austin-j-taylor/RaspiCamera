@@ -4,7 +4,7 @@ import os, logging
 camera = PiCamera()
 
 # Time to wait between photos are taken
-TIMELAPSE_WAIT_S = 0
+TIMELAPSE_WAIT_S = 60
 # Where to save the photos and log file
 SAVE_LOCATION = "/media/pi/ESD-USB/"
 # Root directory of the device (e.g. USB drive) where the photos are saved
