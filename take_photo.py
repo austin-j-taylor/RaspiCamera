@@ -3,13 +3,14 @@ from time import sleep, strftime
 import os, logging
 camera = PiCamera()
 
-# Time to wait between photos are taken
+# Time to wait between photos are taken (seconds)
 TIMELAPSE_WAIT_S = 60
 # Where to save the photos and log file
-SAVE_LOCATION = "/media/pi/ESD-USB/"
+# Make sure the USB drive is mounted to /mnt/photo-drive/ and the user has the right permissions
+SAVE_LOCATION = "/mnt/photo-drive/"
 # Root directory of the device (e.g. USB drive) where the photos are saved
 # Used to calculate how much available space there is before stopping
-SAVE_LOCATION_ROOT = "/media/pi/ESD-USB/"
+SAVE_LOCATION_ROOT = "/mnt/photo-drive/"
 
 
 captureDirectory = SAVE_LOCATION + "captures/"
@@ -28,6 +29,7 @@ capacity_full = 95
 # Log device storage space information
 info = os.statvfs(SAVE_LOCATION_ROOT)
 logging.debug(info)
+print(info)
 
 # Create captures folder if necessary
 try:
